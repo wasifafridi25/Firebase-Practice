@@ -20,7 +20,7 @@ function App() {
         console.log(user)
         setUser(user)
       })
-    }, 500);
+    }, 3000);
   }, [])
 
   function register() {

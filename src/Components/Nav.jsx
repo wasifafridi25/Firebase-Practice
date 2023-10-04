@@ -9,19 +9,24 @@ export default function Nav({ register, login, user, loading }) {
         <p>Backend Simplified</p>
       </div>
       <div className="right">
-        <button className="btn" onClick={login}>
-          Login
-        </button>
-        <button className="btn" onClick={register}>
-          Register
-        </button>
+        {loading && (
+          <button className="btn loading">Loading...</button>
+        )}
 
-        {loading ? (
-          "Loading..."
-        ) : Object.keys(user).length !== 0 && (
+        {!loading && (
+          <>
+            <button className="btn" onClick={login}>
+              Login
+            </button>
+            <button className="btn" onClick={register}>
+              Register
+            </button>
+          </>
+        )}
+
+        {Object.keys(user).length !== 0 && (
           <button className="profile">{user.email[0].toUpperCase()}</button>
-        ) 
-        }
+        )}
       </div>
     </nav>
   );
